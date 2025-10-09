@@ -3,110 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Next Care - Enfermaria Escolar</title>
+  <title>Next Care - Login</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body>
+<body class="login-page">
+  <div class="login-box">
+    <img src="logo.png" alt="Next Care" class="logo">
+    <h1>Next Care</h1>
+    <p class="subtitle">Sistema de Agenda da Enfermaria Escolar</p>
 
-  <!-- Login -->
-  <section id="login-page" class="page active">
-    <div class="login-card">
-      <img src="./Design sem nome.png" alt="Next Care" class="logo">
-      <h2>Next Care</h2>
-      <p class="subtitle">Sistema de Agenda da Enfermaria Escolar</p>
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="seu@email.com" required>
 
-      <form id="login-form">
-        <label>Email</label>
-        <input type="email" id="email" placeholder="seu@email.com" required>
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" placeholder="********" required>
 
-        <label>Senha</label>
-        <input type="password" id="senha" placeholder="••••••" required>
+      <button type="submit">Entrar</button>
+    </form>
 
-        <button type="submit" class="btn">Entrar</button>
-      </form>
-
-      <div class="demo">
-        <p>Usuários de demonstração:</p>
-        <p>admin@escola.com (Administrador)</p>
-        <p>fernanda@escola.com (Enfermeira)</p>
-        <p>roberto@escola.com (Médico)</p>
-      </div>
+    <div class="demo">
+      <p>Usuários de demonstração:</p>
+      <p>admin@escola.com (Administrador)</p>
+      <p>fernanda@escola.com (Enfermeira)</p>
+      <p>roberto@escola.com (Médico)</p>
     </div>
-  </section>
-
-  <!-- Dashboard -->
-  <section id="dashboard-page" class="page">
-    <aside class="sidebar">
-      <h3>Next Care</h3>
-      <p>Enfermaria Escolar</p>
-      <ul>
-        <li class="active">📊 Dashboard</li>
-        <li>📅 Consultas</li>
-        <li>🗓️ Calendário</li>
-        <li>🎓 Alunos</li>
-        <li>📄 Atestados</li>
-        <li>➕ Gerar Atestado</li>
-        <li>👩‍⚕️ Profissionais</li>
-        <li>🔍 Busca Global</li>
-      </ul>
-      <button id="logout" class="btn">Sair</button>
-    </aside>
-
-    <main class="main">
-      <h1>Dashboard</h1>
-      <p class="subtitle">Visão geral das atividades da enfermaria escolar</p>
-
-      <div class="stats">
-        <div class="card">
-          <h4>Consultas Hoje</h4>
-          <p class="num">0</p>
-          <span>0 realizadas, 0 agendadas</span>
-        </div>
-        <div class="card">
-          <h4>Total de Alunos</h4>
-          <p class="num">3</p>
-          <span>Cadastrados no sistema</span>
-        </div>
-        <div class="card">
-          <h4>Atestados Emitidos</h4>
-          <p class="num">1</p>
-          <span>Este mês</span>
-        </div>
-        <div class="card">
-          <h4>Próximas Consultas</h4>
-          <p class="num">0</p>
-          <span>Aguardando atendimento</span>
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="recent">
-          <h3>Consultas Recentes</h3>
-          <div class="consult">
-            <div>
-              <strong>Carla Oliveira</strong>
-              <p>Reação alérgica — 16/01/2024 às 14:00</p>
-            </div>
-            <span class="status green">Realizada</span>
-          </div>
-          <div class="consult">
-            <div>
-              <strong>João Santos</strong>
-              <p>Dor de cabeça — 15/01/2024 às 10:30</p>
-            </div>
-            <span class="status yellow">Agendada</span>
-          </div>
-        </div>
-
-        <div class="actions">
-          <h3>Ações Rápidas</h3>
-          <button class="btn small">📅 Nova Consulta</button>
-          <button class="btn small">📄 Emitir Atestado</button>
-          <button class="btn small">🎓 Buscar Aluno</button>
-        </div>
-      </div>
-    </main>
-  </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
