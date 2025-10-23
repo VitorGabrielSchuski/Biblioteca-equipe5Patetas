@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Next Care - Dashboard</title>
+  <title>Next Care - Painel</title>
+
+  <!-- CSS e Ícones -->
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+
 <body onload="alert('Bem-vindo ao sistema Next Care!')">
-  <div class="dashboard">
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <img src="./Design sem nome.png" alt="Logo" class="sidebar-logo">
+
+  <div class="painel-geral">
+    
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      
+      <!-- Cabeçalho do Menu -->
+      <div class="cabecalho-menu">
+        <img src="./NextCare.png" alt="Logo" class="logo-menu">
         <p>Enfermaria Escolar</p>
       </div>
 
-      <nav>
+      <!-- Navegação -->
+      <nav class="navegacao">
         <ul>
-          <li><a href="#" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+          <li><a href="#" class="ativo"><i class="bi bi-speedometer2"></i> Painel</a></li>
           <li><a href="./agendaConsulta.html"><i class="bi bi-calendar-check"></i> Consultas</a></li>
           <li><a href="#"><i class="bi bi-calendar4-week"></i> Calendário</a></li>
           <li><a href="#"><i class="bi bi-people"></i> Alunos</a></li>
@@ -28,68 +37,98 @@
         </ul>
       </nav>
 
-      <div class="sidebar-footer">
+      <!-- Rodapé do Menu -->
+      <div class="rodape-menu">
         <p><strong>Administrador</strong><br>Administrador</p>
-        <button onclick="window.location.href='index.html'"><i class="bi bi-box-arrow-left"></i> Sair</button>
+        <button onclick="window.location.href='index.html'">
+          <i class="bi bi-box-arrow-left"></i> Sair
+        </button>
       </div>
+
     </aside>
+    <!-- FIM MENU LATERAL -->
 
-    <main class="content">
-      <h1>Dashboard</h1>
-      <p class="subtitle">Visão geral das atividades da enfermaria escolar</p>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+      
+      <h1>Painel Principal</h1>
+      <p class="subtitulo">Visão geral das atividades da enfermaria escolar</p>
 
-      <section class="stats">
-        <div class="card">
+      <!-- SEÇÃO: ESTATÍSTICAS -->
+      <section class="estatisticas">
+        
+        <div class="cartao">
           <i class="bi bi-calendar-check"></i>
           <h3>Consultas Hoje</h3>
-          <p class="big">0</p>
+          <p class="numero">0</p>
           <small>0 realizadas, 0 agendadas</small>
         </div>
-        <div class="card">
+
+        <div class="cartao">
           <i class="bi bi-people"></i>
           <h3>Total de Alunos</h3>
-          <p class="big">3</p>
+          <p class="numero">3</p>
           <small>Cadastrados no sistema</small>
         </div>
-        <div class="card">
+
+        <div class="cartao">
           <i class="bi bi-file-earmark-medical"></i>
           <h3>Atestados Emitidos</h3>
-          <p class="big">1</p>
+          <p class="numero">1</p>
           <small>Este mês</small>
         </div>
-        <div class="card">
+
+        <div class="cartao">
           <i class="bi bi-clock-history"></i>
           <h3>Próximas Consultas</h3>
-          <p class="big">0</p>
+          <p class="numero">0</p>
           <small>Aguardando atendimento</small>
         </div>
-      </section>
 
-      <section class="bottom">
-        <div class="recent">
+      </section>
+      <!-- FIM SEÇÃO ESTATÍSTICAS -->
+
+      <!-- SEÇÃO: CONSULTAS E AÇÕES -->
+      <section class="secao-inferior">
+        
+        <!-- CONSULTAS RECENTES -->
+        <div class="consultas-recentes">
           <h2><i class="bi bi-clock"></i> Consultas Recentes</h2>
-          <div class="consult">
+
+          <div class="consulta">
             <strong>Carla Oliveira</strong><br>
             <span>Reação alérgica — 16/01/2024 às 14:00</span>
-            <span class="status green">Realizada</span>
+            <span class="status verde">Realizada</span>
           </div>
-          <div class="consult">
+
+          <div class="consulta">
             <strong>João Santos</strong><br>
             <span>Dor de cabeça — 10/10/2025 às 10:30</span>
-            <span class="status yellow">Agendada</span>
+            <span class="status amarelo">Agendada</span>
           </div>
         </div>
 
-        <div class="actions">
+        <!-- AÇÕES RÁPIDAS -->
+        <div class="acoes-rapidas">
           <h2><i class="bi bi-lightning-charge"></i> Ações Rápidas</h2>
-          <button class="btn-action" onclick="abrirAgenda()">
-            <i class="bi bi-calendar-plus"></i> Nova Consulta
+
+          <button>
+            <a href="agendaConsulta.html" class="botao-acao">
+              <i class="bi bi-calendar-plus"></i> Nova Consulta
+            </a>
           </button>
+
           <button><i class="bi bi-file-earmark-plus"></i> Emitir Atestado</button>
           <button><i class="bi bi-search"></i> Buscar Aluno</button>
         </div>
+
       </section>
+      <!-- FIM SEÇÃO CONSULTAS E AÇÕES -->
+
     </main>
+    <!-- FIM CONTEÚDO PRINCIPAL -->
+
   </div>
+
 </body>
 </html>
