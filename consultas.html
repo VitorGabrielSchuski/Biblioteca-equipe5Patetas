@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Care - Consultas</title>
+  <link rel="stylesheet" href="consulta.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="painel-geral">
+
+  <!-- MENU LATERAL -->
+  <aside class="menu-lateral">
+
+    <div class="cabecalho-menu">
+      <img src="./NextCare.png" alt="Logo" class="logo-menu">
+      <p>Enfermaria Escolar</p>
+    </div>
+
+    <nav class="navegacao">
+      <ul>
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Painel</a></li>
+        <li><a href="#" class="ativo"><i class="bi bi-calendar-check"></i> Consultas</a></li>
+        <li><a href="#"><i class="bi bi-calendar4-week"></i> Calendário</a></li>
+        <li><a href="#"><i class="bi bi-people"></i> Alunos</a></li>
+        <li><a href="#"><i class="bi bi-file-earmark-medical"></i> Atestados</a></li>
+        <li><a href="#"><i class="bi bi-file-plus"></i> Gerar Atestado</a></li>
+        <li><a href="#"><i class="bi bi-person-badge"></i> Profissionais</a></li>
+        <li><a href="#"><i class="bi bi-search"></i> Busca Global</a></li>
+      </ul>
+    </nav>
+
+    <div class="rodape-menu">
+      <p><strong>Administrador</strong><br>Administrador</p>
+      <button onclick="window.location.href='index.html'">
+        <i class="bi bi-box-arrow-left"></i> Sair
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo">
+    <h1>Consultas</h1>
+    <p class="subtitulo">Gerencie as consultas da enfermaria escolar</p>
+
+    <!-- CARDS DE RESUMO -->
+    <section class="estatisticas">
+      <div class="cartao">
+        <i class="bi bi-card-checklist"></i>
+        <h3>Total</h3>
+        <p class="numero">3</p>
+        <small>Consultas registradas</small>
+      </div>
+      <div class="cartao">
+        <i class="bi bi-calendar-day"></i>
+        <h3>Hoje</h3>
+        <p class="numero">0</p>
+        <small>Consultas de hoje</small>
+      </div>
+      <div class="cartao">
+        <i class="bi bi-check-circle"></i>
+        <h3>Realizadas</h3>
+        <p class="numero">2</p>
+        <small>Atendimentos concluídos</small>
+      </div>
+      <div class="cartao">
+        <i class="bi bi-clock-history"></i>
+        <h3>Agendadas</h3>
+        <p class="numero">1</p>
+        <small>Aguardando atendimento</small>
+      </div>
+      <div class="acoes-rapidas">
+        <button><a href="agendarConsulta.html" class="botao-acao"><i class="bi bi-plus"></i> Nova Consulta</a></button>
+      </div>
+    </section>
+
+    <!-- FILTROS E BUSCA -->
+    <div class="secao-inferior">
+      <div class="consultas-recentes">
+        <h2><i class="bi bi-funnel"></i> Filtros</h2>
+        <div class="filtros-busca">
+          <input type="text" id="busca" placeholder="Buscar por aluno, profissional ou motivo..." onkeyup="filtrarConsultas()">
+          <select id="statusFiltro" onchange="filtrarConsultas()">
+            <option value="">Todos os status</option>
+            <option value="Realizada">Realizada</option>
+            <option value="Agendada">Agendada</option>
+          </select>
+          <select id="periodoFiltro" onchange="filtrarConsultas()">
+            <option value="">Todos os períodos</option>
+            <option value="hoje">Hoje</option>
+            <option value="ontem">Ontem</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABELA DE CONSULTAS -->
+    <div class="tabela-consultas">
+      <table>
+        <thead>
+          <tr>
+            <th>Data/Hora</th>
+            <th>Aluno</th>
+            <th>Profissional</th>
+            <th>Motivo</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="listaConsultas">
+          <tr>
+            <td>16/01/2024<br>14:00</td>
+            <td>Carla Oliveira<br>3º C</td>
+            <td>Dra. Fernanda Costa<br>Nurse</td>
+            <td>Reação alérgica</td>
+            <td><span class="status verde">Realizada</span></td>
+            <td><button onclick="verDetalhes(this)">Ver Detalhes</button></td>
+          </tr>
+          <tr>
+            <td>15/01/2024<br>10:30</td>
+            <td>João Santos<br>7º B</td>
+            <td>Dr. Roberto Lima<br>Doctor</td>
+            <td>Dor de cabeça</td>
+            <td><span class="status amarelo">Agendada</span></td>
+            <td><button onclick="verDetalhes(this)">Ver Detalhes</button></td>
+          </tr>
+          <tr>
+            <td>14/01/2024<br>09:00</td>
+            <td>Ana Silva<br>5º A</td>
+            <td>Dra. Fernanda Costa<br>Nurse</td>
+            <td>Crise de asma</td>
+            <td><span class="status verde">Realizada</span></td>
+            <td><button onclick="verDetalhes(this)">Ver Detalhes</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script src="consultas.js"></script>
+</body>
+</html>
