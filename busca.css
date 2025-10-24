@@ -1,0 +1,240 @@
+/* ===========================
+   VARIÁVEIS DE CORES
+   =========================== */
+:root {
+  --verde-escuro: #1e6b0f;
+  --verde: #106b00;
+  --fundo: #f8f9f5;
+  --card-bg: #fff;
+  --texto: #333;
+  --muted: #666;
+  --border-soft: #e6eedb;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* ===========================
+   RESET BÁSICO
+   =========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ===========================
+   CONTAINER PRINCIPAL
+   =========================== */
+.container-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--fundo);
+}
+
+/* ===========================
+   MENU LATERAL
+   =========================== */
+/* MENU LATERAL */
+  .menu-lateral{
+    width: 240px;
+    background: var(--verde-escuro);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px;
+    gap: 12px;
+  }
+  
+  .cabecalho-menu{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  
+  .logo-menu{
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  
+  .cabecalho-menu p{
+    margin:0;
+    font-weight:600;
+  }
+  
+  /* navegação */
+  .navegacao ul{
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+  }
+  
+  .navegacao ul li{
+    margin-bottom: 6px;
+  }
+  
+  .navegacao ul li a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.2s;
+    text-decoration: none;
+  }
+  
+  .navegacao ul li a:hover{
+    background: rgba(255,255,255,0.08);
+  }
+  
+  /* rodapé do menu */
+  .rodape-menu{
+    margin-top: 8px;
+  }
+  
+  .rodape-menu p{ margin:0 0 8px 0; font-size:14px; line-height:1.1; }
+  
+  .rodape-menu button{
+    width:100%;
+    padding:8px;
+    border-radius:8px;
+    border:none;
+    background:#fff;
+    color:var(--verde-escuro);
+    cursor:pointer;
+  }
+
+/* ===========================
+   CONTEÚDO PRINCIPAL
+   =========================== */
+.conteudo-principal {
+  flex: 1;
+  padding: 28px;
+  min-width: 0;
+}
+
+.conteudo-principal header h1 {
+  margin: 0 0 6px 0;
+  color: var(--verde-escuro);
+  font-size: 26px;
+}
+
+.conteudo-principal header p {
+  margin: 0 0 20px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===========================
+   BUSCA GLOBAL
+   =========================== */
+.search-section {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+#globalSearch {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+  font-size: 15px;
+  outline: none;
+  background: #fbfdf8;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+#globalSearch:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(16, 107, 0, 0.1);
+}
+
+/* Resultados */
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.result-card {
+  background: var(--fundo);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.result-card:hover {
+  background: #eef7ea;
+}
+
+.result-card strong {
+  display: block;
+  font-size: 15px;
+  color: var(--verde-escuro);
+  margin-bottom: 4px;
+}
+
+.result-card div {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Scroll personalizado */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background-color: var(--verde);
+  border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background-color: var(--border-soft);
+  border-radius: 3px;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+@media (max-width: 1000px) {
+  .conteudo-principal {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  .menu-lateral {
+    display: none;
+  }
+  .conteudo-principal {
+    padding: 14px;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NextCare | Busca Global</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Toastify CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="busca.css">
+  <script defer src="scripts/busca.js"></script>
+</head>
+<body>
+  <div class="container-dashboard">
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      <!-- Cabeçalho do Menu -->
+      <div class="cabecalho-menu">
+        <img src="./NextCare.png" alt="Logo" class="logo-menu">
+        <p>Enfermaria Escolar</p>
+      </div>
+      <!-- Navegação -->
+      <nav class="navegacao">
+        <ul>
+          <li><a href="dashboard.html" class="ativo"><i class="bi bi-speedometer2"></i> Painel</a></li>
+          <li><a href="consultas.html"><i class="bi bi-calendar-check"></i> Consultas</a></li>
+          <li><a href="#"><i class="bi bi-calendar4-week"></i> Calendário</a></li>
+          <li><a href="aluno.html"><i class="bi bi-people"></i> Alunos</a></li>
+          <li><a href="atestado.html"><i class="bi bi-file-earmark-medical"></i> Atestados</a></li>
+          <li><a href="#"><i class="bi bi-file-plus"></i> Gerar Atestado</a></li>
+          <li><a href="profissionais.html"><i class="bi bi-person-badge"></i> Profissionais</a></li>
+          <li><a href="#"><i class="bi bi-search"></i> Busca Global</a></li>
+        </ul>
+      </nav>
+
+      <!-- Rodapé do Menu -->
+      <div class="rodape-menu">
+        <p><strong>Administrador</strong><br>Administrador</p>
+        <button onclick="window.location.href='index.html'">
+          <i class="bi bi-box-arrow-left"></i> Sair
+        </button>
+      </div>
+
+    </aside>
+    <!-- FIM MENU LATERAL -->
+
+    <main class="conteudo-principal">
+      <header>
+        <h1>Busca Global</h1>
+        <p>Pesquise por alunos, profissionais, consultas e atestados.</p>
+      </header>
+
+      <section class="search-section">
+        <input id="globalSearch" placeholder="Digite para buscar... (ex: Maria, Dra. Ana, #001)" />
+        <div id="searchResults" class="search-results"></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

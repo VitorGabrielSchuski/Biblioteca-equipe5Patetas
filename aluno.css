@@ -7,7 +7,10 @@
   --muted: #666;
   --border-soft: #e6eedb;
 }
- 
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
  /* MENU LATERAL */
   .menu-lateral{
     width: 240px;
@@ -58,7 +61,6 @@
     font-size: 15px;
   }
   
-  .navegacao ul li a.ativo,
   .navegacao ul li a:hover{
     background: rgba(255,255,255,0.08);
   }
