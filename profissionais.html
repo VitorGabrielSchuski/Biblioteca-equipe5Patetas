@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Care - Profissionais</title>
+    <link rel="stylesheet" href="profissionais.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Next Care">
+                <span>Enfermaria Escolar</span>
+            </div>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Consultas</a></li>
+                <li><a href="#">Calendário</a></li>
+                <li><a href="#">Alunos</a></li>
+                <li><a href="#">Atestados</a></li>
+                <li><a href="#">Gerar Atestado</a></li>
+                <li><a href="#">Profissionais</a></li>
+                <li><a href="#">Busca Global</a></li>
+            </ul>
+            <div class="admin">
+                <span>Administrador</span>
+                <button id="logoutBtn">Sair</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Profissionais</h1>
+                <button id="newProfessionalBtn" class="btn-primary">+ Novo Profissional</button>
+            </header>
+
+            <section class="summary">
+                <div class="summary-item">
+                    <span class="icon">👥</span>
+                    <h3>Total de Profissionais</h3>
+                    <p id="totalProfessionals">3</p>
+                    <small>Ativos no sistema</small>
+                </div>
+                <div class="summary-item">
+                    <span class="icon">📋</span>
+                    <h3>Consultas Realizadas</h3>
+                    <p id="totalConsultations">3</p>
+                    <small>Total de atendimentos</small>
+                </div>
+                <div class="summary-item">
+                    <span class="icon">⏰</span>
+                    <h3>Consultas Hoje</h3>
+                    <p id="todayConsultations">0</p>
+                    <small>Agendadas para hoje</small>
+                </div>
+            </section>
+
+            <section class="team">
+                <h2>Equipe de Profissionais</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Função</th>
+                            <th>Especialização</th>
+                            <th>Consultas Realizadas</th>
+                            <th>Consultas Hoje</th>
+                            <th>Agendadas</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="professionalTable">
+                        <tr>
+                            <td>Dra. Fernanda Costa</td>
+                            <td><span class="badge enfermeiro">Enfermeiro(a)</span></td>
+                            <td>Enfermagem Escolar</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>
+                                <button class="btn-action">Ver Agenda</button>
+                                <button class="btn-delete">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Roberto Lima</td>
+                            <td><span class="badge medico">Médico(a)</span></td>
+                            <td>Pediatria</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>
+                                <button class="btn-action">Ver Agenda</button>
+                                <button class="btn-delete">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dra. Lucia Mendes</td>
+                            <td><span class="badge psicologo">Psicólogo(a)</span></td>
+                            <td>Psicologia Infantil</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>
+                                <button class="btn-action">Ver Agenda</button>
+                                <button class="btn-delete">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="newProfessionalModal">
+        <div class="modal-content">
+            <h2>Cadastrar Novo Profissional</h2>
+            <form id="professionalForm">
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" placeholder="Ex: Dr. João Silva" required>
+
+                <label for="role">Função:</label>
+                <select id="role" required>
+                    <option value="Enfermeiro(a)">Enfermeiro(a)</option>
+                    <option value="Médico(a)">Médico(a)</option>
+                    <option value="Psicólogo(a)">Psicólogo(a)</option>
+                </select>
+
+                <label for="specialization">Especialização:</label>
+                <input type="text" id="specialization" placeholder="Ex: Pediatria" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="email@escola.com" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" placeholder="(11) 99999-9999" required>
+
+                <label for="coren">COREN:</label>
+                <input type="text" id="coren" placeholder="Ex: 123456">
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelBtn" class="btn-cancel">Cancelar</button>
+                    <button type="submit" class="btn-primary">Cadastrar Profissional</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="profissionais.js"></script>
+</body>
+</html>
