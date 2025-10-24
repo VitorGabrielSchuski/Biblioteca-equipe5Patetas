@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Next Care - Atestados</title>
+
+  <!-- CSS local -->
+  <link href="atestado.css" rel="stylesheet" />
+
+  <!-- Bootstrap (cdn estável) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="painel-geral">
+    <!-- MENU LATERAL -->
+  <aside class="menu-lateral">
+
+    <div class="cabecalho-menu">
+      <img src="./NextCare.png" alt="Logo" class="logo-menu">
+      <p>Enfermaria Escolar</p>
+    </div>
+
+    <nav class="navegacao">
+      <ul>
+        <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Painel</a></li>
+        <li><a href="#" class="ativo"><i class="bi bi-calendar-check"></i> Consultas</a></li>
+        <li><a href="#"><i class="bi bi-calendar4-week"></i> Calendário</a></li>
+        <li><a href="#"><i class="bi bi-people"></i> Alunos</a></li>
+        <li><a href="#"><i class="bi bi-file-earmark-medical"></i> Atestados</a></li>
+        <li><a href="#"><i class="bi bi-file-plus"></i> Gerar Atestado</a></li>
+        <li><a href="#"><i class="bi bi-person-badge"></i> Profissionais</a></li>
+        <li><a href="#"><i class="bi bi-search"></i> Busca Global</a></li>
+      </ul>
+    </nav>
+
+    <div class="rodape-menu">
+      <p><strong>Administrador</strong><br>Administrador</p>
+      <button onclick="window.location.href='index.html'">
+        <i class="bi bi-box-arrow-left"></i> Sair
+      </button>
+    </div>
+
+  </aside>
+      <!-- FIM MENU LATERAL -->
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+      <div class="cabecalho d-flex align-items-start justify-content-between">
+        <div>
+          <h2>Atestados</h2>
+          <p class="text-muted">Gerencie os atestados médicos emitidos</p>
+        </div>
+        <div>
+          <button id="novoAtestadoBtn" class="btn btn-success">+ Novo Atestado</button>
+        </div>
+      </div>
+
+      <!-- LISTA DE ATESTADOS -->
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="mb-3">Lista de Atestados</h5>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Data de Emissão</th>
+                  <th>Aluno</th>
+                  <th>Motivo</th>
+                  <th>Recomendações</th>
+                  <th>Data de Retorno</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaAtestados">
+                <!-- Registros aqui -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL NOVO ATESTADO -->
+  <div class="modal fade" id="modalAtestado" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Novo Atestado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formAtestado">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Data de Emissão</label>
+                <input type="date" class="form-control" id="dataEmissao" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Data de Retorno</label>
+                <input type="date" class="form-control" id="dataRetorno" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Aluno</label>
+                <input type="text" class="form-control" id="aluno" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Turma</label>
+                <input type="text" class="form-control" id="turma" required>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Motivo do Atendimento</label>
+                <textarea class="form-control" id="motivo" rows="2" required></textarea>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Recomendações Médicas</label>
+                <textarea class="form-control" id="recomendacoes" rows="2" required></textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Médico</label>
+                <input type="text" class="form-control" id="medico" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">CRM</label>
+                <input type="text" class="form-control" id="crm" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Responsável</label>
+                <input type="text" class="form-control" id="responsavel" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="telefone" required>
+              </div>
+            </div>
+
+            <div class="text-end mt-3">
+              <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL VISUALIZAR -->
+  <div class="modal fade" id="modalVisualizar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Visualização do Atestado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="conteudoVisualizar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script da aplicação -->
+  <script src="atestado.js"></script>
+</body>
+</html>
