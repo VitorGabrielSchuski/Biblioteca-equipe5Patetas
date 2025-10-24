@@ -45,7 +45,15 @@ professionalForm.addEventListener('submit', (event) => {
     const total = document.getElementById('totalProfessionals');
     total.textContent = parseInt(total.textContent) + 1;
 
-    alert('Profissional cadastrado com sucesso!');
+    // Use Toastify for notification
+    Toastify({
+        text: "Profissional cadastrado com sucesso!",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "#106b00"
+    }).showToast();
+
     professionalForm.reset();
     newProfessionalModal.style.display = 'none';
 });
@@ -58,7 +66,13 @@ function getBadgeClass(role) {
 }
 
 function verAgenda(nome) {
-    alert(`Abrindo agenda de ${nome}...`);
+    Toastify({
+        text: `Abrindo agenda de ${nome}...`,
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "#106b00"
+    }).showToast();
 }
 
 function excluirProfissional(linha) {
@@ -69,7 +83,13 @@ function excluirProfissional(linha) {
         const total = document.getElementById('totalProfessionals');
         total.textContent = parseInt(total.textContent) - 1;
 
-        alert(`${nome} foi removido do sistema.`);
+        Toastify({
+            text: `${nome} foi removido do sistema.`,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "#f44336"
+        }).showToast();
     }
 }
 
@@ -95,6 +115,12 @@ function attachButtonEvents(container = document) {
 attachButtonEvents();
 
 document.getElementById('logoutBtn').addEventListener('click', () => {
-    alert('Você saiu do sistema.');
+    Toastify({
+        text: 'Você saiu do sistema.',
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "#e53935"
+    }).showToast();
     window.location.href = 'login.html';
 });

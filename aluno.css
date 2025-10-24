@@ -1,4 +1,14 @@
-  /* MENU LATERAL */
+:root{
+  --verde-escuro: #1e6b0f;
+  --verde: #106b00;
+  --fundo: #f8f9f5;
+  --card-bg: #fff;
+  --texto: #333;
+  --muted: #666;
+  --border-soft: #e6eedb;
+}
+ 
+ /* MENU LATERAL */
   .menu-lateral{
     width: 240px;
     background: var(--verde-escuro);
@@ -68,11 +78,6 @@
     background:#fff;
     color:var(--verde-escuro);
     cursor:pointer;
-  }
-  
-  :root {
-    --verde-escuro: #224d26;
-    --verde-claro: #f3f7ec;
   }
   
   /* LAYOUT GERAL */
