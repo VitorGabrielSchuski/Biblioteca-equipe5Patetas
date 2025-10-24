@@ -1,0 +1,157 @@
+     <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Care - Alunos</title>
+
+  <!-- Bootstrap e Ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="aluno.css">
+</head>
+
+<body>
+  <div class="painel-geral">
+
+    <!-- MENU LATERAL -->
+    <aside class="menu-lateral">
+      <div class="cabecalho-menu">
+        <img src="./NextCare.png" alt="Logo" class="logo-menu">
+        <p>Enfermaria Escolar</p>
+      </div>
+
+      <nav class="navegacao">
+        <ul>
+          <li><a href="#"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+          <li><a href="#"><i class="bi bi-calendar-check"></i> Consultas</a></li>
+          <li><a href="#"><i class="bi bi-calendar4-week"></i> Calendário</a></li>
+          <li><a href="#" class="ativo"><i class="bi bi-people"></i> Alunos</a></li>
+          <li><a href="#"><i class="bi bi-file-earmark-medical"></i> Atestados</a></li>
+          <li><a href="#"><i class="bi bi-file-plus"></i> Gerar Atestado</a></li>
+          <li><a href="#"><i class="bi bi-person-badge"></i> Profissionais</a></li>
+          <li><a href="#"><i class="bi bi-search"></i> Busca Global</a></li>
+        </ul>
+      </nav>
+
+      <div class="rodape-menu">
+        <p><strong>Administrador</strong><br>Administrador</p>
+        <button onclick="window.location.href='index.html'">
+          <i class="bi bi-box-arrow-left"></i> Sair
+        </button>
+      </div>
+    </aside>
+    <!-- FIM MENU LATERAL -->
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo-principal p-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2>Alunos</h2>
+          <p>Gerencie os alunos cadastrados no sistema</p>
+        </div>
+        <button class="btn btn-success" id="novoAluno"><i class="bi bi-plus-lg"></i> Novo Aluno</button>
+      </div>
+
+      <!-- CARDS -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h6>Total de Alunos</h6>
+            <h2 id="totalAlunos">3</h2>
+            <small>Cadastrados no sistema</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h6>Com Consultas</h6>
+            <h2 id="comConsultas">3</h2>
+            <small>Já utilizaram a enfermaria</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h6>Com Condições Médicas</h6>
+            <h2 id="comCondicoes">2</h2>
+            <small>Requerem atenção especial</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUSCAR -->
+      <div class="card p-3 mb-4">
+        <h6>Buscar Alunos</h6>
+        <input type="text" id="buscarAluno" class="form-control" placeholder="Buscar por nome, turma ou responsável...">
+      </div>
+
+      <!-- LISTA -->
+      <div class="card p-3">
+        <h6>Lista de Alunos</h6>
+        <table class="table align-middle mt-3">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Turma</th>
+              <th>Idade</th>
+              <th>Responsável</th>
+              <th>Consultas</th>
+              <th>Condições Médicas</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaAlunos">
+            <tr>
+              <td>Ana Silva</td>
+              <td>5º A</td>
+              <td>10 anos</td>
+              <td>Maria Silva<br><small>(11) 99999-1111</small></td>
+              <td>1 total<br><small>Última: 14/01/2024</small></td>
+              <td><span class="badge bg-warning text-dark">Asma</span></td>
+              <td><button class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Ver Detalhes</button></td>
+            </tr>
+            <tr>
+              <td>João Santos</td>
+              <td>7º B</td>
+              <td>12 anos</td>
+              <td>José Santos<br><small>(11) 99999-2222</small></td>
+              <td>1 total<br><small>Última: 15/01/2024</small></td>
+              <td>Nenhuma</td>
+              <td><button class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Ver Detalhes</button></td>
+            </tr>
+            <tr>
+              <td>Carla Oliveira</td>
+              <td>3º C</td>
+              <td>8 anos</td>
+              <td>Paula Oliveira<br><small>(11) 99999-3333</small></td>
+              <td>1 total<br><small>Última: 16/01/2024</small></td>
+              <td><span class="badge bg-warning text-dark">Alergia alimentar</span></td>
+              <td><button class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Ver Detalhes</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Buscar aluno
+    document.getElementById('buscarAluno').addEventListener('input', function () {
+      const termo = this.value.toLowerCase();
+      const linhas = document.querySelectorAll('#tabelaAlunos tr');
+
+      linhas.forEach(linha => {
+        const texto = linha.textContent.toLowerCase();
+        linha.style.display = texto.includes(termo) ? '' : 'none';
+      });
+    });
+
+    // Botão novo aluno
+    document.getElementById('novoAluno').addEventListener('click', () => {
+      alert('Função de cadastro de novo aluno em desenvolvimento!');
+    });
+  </script>
+
+</body>
+</html>
