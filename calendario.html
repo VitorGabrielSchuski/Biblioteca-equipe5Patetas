@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Care - Calendário</title>
+    <link rel="stylesheet" href="calendario.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="painel-geral">
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+            <div class="cabecalho-menu">
+                <img src="NextCare.png" alt="Logo NextCare" class="logo-menu">
+                <p>Enfermaria Escolar</p>
+            </div>
+
+            <nav class="navegacao">
+                <ul>
+                    <li><a href="dashboard.html"><i class="bi bi-house-door"></i> Dashboard</a></li>
+                    <li><a href="consultas.html"><i class="bi bi-clipboard2-pulse"></i> Consultas</a></li>
+                    <li><a href="calendario.html" class="ativo"><i class="bi bi-calendar-event"></i> Calendário</a></li>
+                    <li><a href="alunos.html"><i class="bi bi-people"></i> Alunos</a></li>
+                    <li><a href="atestados.html"><i class="bi bi-file-earmark-medical"></i> Atestados</a></li>
+                    <li><a href="profissionais.html"><i class="bi bi-person-vcard"></i> Profissionais</a></li>
+                    <li><a href="busca.html"><i class="bi bi-search"></i> Busca Global</a></li>
+                </ul>
+            </nav>
+
+            <div class="rodape-menu">
+                <p><strong>Administrador</strong></p>
+                <button id="btnSair"><i class="bi bi-box-arrow-right"></i> Sair</button>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo">
+            <header class="topo">
+                <h1><i class="bi bi-calendar3"></i> Calendário de Consultas</h1>
+            </header>
+
+            <div class="container-calendario">
+                <div class="painel-principal">
+                    <div class="cabecalho-calendario">
+                        <button id="btnPrev"><i class="bi bi-chevron-left"></i></button>
+                        <h2 id="tituloMes"></h2>
+                        <button id="btnNext"><i class="bi bi-chevron-right"></i></button>
+                        <button id="btnHoje">Hoje</button>
+                    </div>
+
+                    <div class="dias-semana">
+                        <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+                    </div>
+                    <div id="gradeCalendario" class="grade-calendario"></div>
+                </div>
+
+                <aside class="painel-lateral">
+                    <div class="filtro">
+                        <label for="selectProfissional">Filtrar por profissional:</label>
+                        <select id="selectProfissional">
+                            <option value="todos">Todos os profissionais</option>
+                        </select>
+                    </div>
+
+                    <div class="legenda">
+                        <h4>Legenda</h4>
+                        <p><span class="status realizada"></span> Realizada</p>
+                        <p><span class="status agendada"></span> Agendada</p>
+                        <p><span class="status cancelada"></span> Cancelada</p>
+                        <p><span class="status faltou"></span> Faltou</p>
+                    </div>
+
+                    <div class="consultas-hoje">
+                        <h4>Consultas de Hoje</h4>
+                        <div id="consultasHoje">Nenhuma consulta agendada</div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/calendario.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.js"></script>
+</body>
+
+</html>

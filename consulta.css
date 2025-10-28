@@ -1,307 +1,116 @@
-/* =========================
-   Variáveis e reset
-   ========================= */
-   :root{
-    --verde-escuro: #1e6b0f;
-    --verde: #106b00;
-    --fundo: #f8f9f5;
-    --card-bg: #fff;
-    --texto: #333;
-    --muted: #666;
-    --border-soft: #e6eedb;
-  }
-  
-  *{ box-sizing: border-box; }
-  
-  body{
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--fundo);
-    color: var(--texto);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-  
- /* Links e reset básico de botões */
-  a { color: inherit; text-decoration: none; }
-  button { font: inherit; }
+@import url('global.css');
 
-  /* =========================
-     Layout principal
-     ========================= */
-  .painel-geral{
-    display: flex;
-    min-height: 100vh;
-    background: var(--fundo);
-  }
-  
-  /* MENU LATERAL */
-  .menu-lateral{
-    width: 240px;
-    background: var(--verde-escuro);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 22px;
-    gap: 12px;
-  }
-  
-  .cabecalho-menu{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  
-  .logo-menu{
-    width: 50px;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .cabecalho-menu p{
-    margin:0;
-    font-weight:600;
-  }
-  
-  /* navegação */
-  .navegacao ul{
-    list-style: none;
-    padding: 0;
-    margin: 18px 0 0;
-  }
-  
-  .navegacao ul li{
-    margin-bottom: 6px;
-  }
-  
-  .navegacao ul li a{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color: #fff;
-    padding: 8px 10px;
-    border-radius: 8px;
-    font-size: 15px;
-    transition: 0.2s;
-    text-decoration: none;
-  }
-  
-  .navegacao ul li a:hover{
-    background: rgba(255,255,255,0.08);
-  }
-  
-  /* rodapé do menu */
-  .rodape-menu{
-    margin-top: 8px;
-  }
-  
-  .rodape-menu p{ margin:0 0 8px 0; font-size:14px; line-height:1.1; }
-  
-  .rodape-menu button{
-    width:100%;
-    padding:8px;
-    border-radius:8px;
-    border:none;
-    background:#fff;
-    color:var(--verde-escuro);
-    cursor:pointer;
-  }
-  
-  /* =========================
-     CONTEÚDO
-     ========================= */
-  .conteudo{
-    flex:1;
-    padding:28px;
-    min-width:0;
-  }
-  
-  .conteudo h1{
-    margin:0 0 6px 0;
-    color: var(--verde-escuro);
-    font-size:26px;
-  }
-  
-  .subtitulo{
-    margin:0 0 20px 0;
-    color: var(--muted);
-  }
-  
-  /* =========================
-     CARDS DE RESUMO
-     ========================= */
-  .estatisticas{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:16px;
-    margin-bottom:20px;
-  }
-  
-  .cartao{
-    background: var(--card-bg);
-    padding:18px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.04);
-    text-align:center;
-    transition: transform 0.2s;
-  }
-  
-  .cartao:hover{
-    transform: translateY(-4px);
-  }
-  
-  .cartao i{
-    font-size:28px;
-    color: var(--verde-escuro);
-    display:block;
-    margin-bottom:6px;
-  }
-  
-  .cartao h3{
-    margin:6px 0 8px;
-    font-size:16px;
-  }
-  
-  .numero{
-    font-size:24px;
-    font-weight:700;
-    margin:0 0 6px;
-    color:#111;
-  }
-  
-  .cartao small{
-    color:var(--muted);
-  }
-  
-  /* =========================
-     FILTROS E BUSCA
-     ========================= */
-  .secao-inferior{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:20px;
-  }
-  
-  .consultas-recentes{
-    background: var(--card-bg);
-    border-radius:10px;
-    padding:18px;
-    flex:1 1 360px;
-    min-width:280px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.04);
-  }
-  
-  .consultas-recentes h2{
-    margin:0 0 12px 0;
-    font-size:18px;
-  }
-  
-  .filtros-busca{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-  
-  .filtros-busca input,
-  .filtros-busca select{
-    padding:8px;
-    border-radius:6px;
-    border:1px solid var(--border-soft);
-    outline:none;
-    font-size:14px;
-  }
-  
-  /* =========================
-     TABELA DE CONSULTAS
-     ========================= */
-  .tabela-consultas{
-    margin-top:20px;
-    overflow:auto;
-  }
-  
-  .tabela-consultas table{
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 2px 6px rgba(0,0,0,0.05);
-  }
-  
-  .tabela-consultas th,
-  .tabela-consultas td{
-    padding:10px;
-    text-align:left;
-    font-size:14px;
-    border-bottom:1px solid #eee;
-  }
-  
-  .tabela-consultas th{
-    background:#f4f9ef;
-  }
-  
-  .status{
-    padding:4px 8px;
-    border-radius:6px;
-    font-size:12px;
-    color:#fff;
-  }
-  
-  .verde{background: var(--verde-escuro);}
-  .amarelo{background:#a5b800;}
-  
-  .tabela-consultas button{
-    padding:4px 8px;
-    border-radius:6px;
-    border:none;
-    cursor:pointer;
-    background:#f0f2ec;
-    font-size:12px;
-  }
-  
-  .tabela-consultas button:hover{
-    background:#e0e4d7;
-  }
-  
-  /* BOTÃO NOVA CONSULTA */
-  .acoes-rapidas button,
-  .acoes-rapidas .botao-acao{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    width:100%;
-    padding:10px 12px;
-    border-radius:8px;
-    border:1px solid var(--border-soft);
-    background:#fbfdf8;
-    color: var(--verde-escuro);
-    cursor:pointer;
-    text-align:left;
-    font-size:15px;
-    text-decoration:none;
-  }
-  
-  .acoes-rapidas button:hover,
-  .acoes-rapidas .botao-acao:hover{
-    background:#eef7ea;
-  }
-  
-  /* =========================
-     RESPONSIVIDADE
-     ========================= */
-  @media(max-width:1000px){
-    .estatisticas{ grid-template-columns: repeat(2,1fr); }
-  }
-  
-  @media(max-width:720px){
-    .menu-lateral{ display:none; }
-    .painel-geral{ flex-direction:column; }
-    .conteudo{ padding:18px; }
-    .estatisticas{ grid-template-columns:1fr; }
-    .acoes-rapidas, .consultas-recentes{ min-width:auto; }
-  }
-  
-  .clearfix::after{ content:""; display:block; clear:both; }
-  
+.container-calendario {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.painel-principal {
+  flex: 1;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.cabecalho-calendario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.cabecalho-calendario h2 {
+  flex: 1;
+  text-align: center;
+  color: var(--verde-escuro);
+}
+
+.cabecalho-calendario button {
+  border: none;
+  background: var(--fundo);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.grade-calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.dia {
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  min-height: 80px;
+  padding: 4px;
+  text-align: right;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.dia:hover {
+  background: #f4f8f3;
+}
+
+.dia.hoje {
+  background: #e8f7e3;
+  border-color: var(--verde);
+}
+
+.dia .num {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status.realizada {
+  background: #a2d39c;
+}
+
+.status.agendada {
+  background: #b5d8ff;
+}
+
+.status.cancelada {
+  background: #f9b6b6;
+}
+
+.status.faltou {
+  background: #e0e0e0;
+}
+
+/* Painel lateral */
+.painel-lateral {
+  width: 260px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.legenda h4,
+.consultas-hoje h4 {
+  margin-bottom: .5rem;
+}
+
+.consultas-hoje {
+  margin-top: 1rem;
+}

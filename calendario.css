@@ -1,0 +1,169 @@
+:root {
+    --verde-escuro: #1e6b0f;
+    --verde: #106b00;
+    --fundo: #f8f9f5;
+    --card-bg: #fff;
+    --texto: #333;
+    --border-soft: #e6eedb;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+.painel-geral {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+.menu-lateral {
+    width: 240px;
+    background: var(--verde-escuro);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabecalho-menu {
+    text-align: center;
+    padding: 1rem;
+}
+
+.cabecalho-menu img {
+    width: 80px;
+}
+
+.navegacao ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navegacao a {
+    display: block;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.navegacao a:hover,
+.navegacao a.ativo {
+    background: var(--verde);
+}
+
+.rodape-menu {
+    text-align: center;
+    padding: 1rem;
+}
+
+.btn-sair {
+    background: #fff;
+    color: var(--verde-escuro);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* CONTEÚDO */
+.conteudo {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botoes-topo button {
+    margin-left: 6px;
+    background: var(--fundo);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+
+/* CALENDÁRIO */
+.calendario-container {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+}
+
+.calendario {
+    background: var(--card-bg);
+    flex: 1;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+}
+
+.grade-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 0.5rem;
+}
+
+.dia {
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    min-height: 80px;
+    padding: 4px;
+    text-align: right;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.dia.hoje {
+    background: #eaf7e0;
+    border-color: var(--verde);
+}
+
+.dia .marcador {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 2px auto;
+}
+
+.status.realizada {
+    background: #a2d39c;
+}
+
+.status.agendada {
+    background: #b5d8ff;
+}
+
+.status.cancelada {
+    background: #f9b6b6;
+}
+
+.status.faltou {
+    background: #e0e0e0;
+}
+
+/* PAINEL LATERAL */
+.painel-lateral {
+    width: 250px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
